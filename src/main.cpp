@@ -24,9 +24,27 @@ int main(int argc, char* args[])
     screenSurface = SDL_GetWindowSurface(window);
     SDL_FillRect( screenSurface, NULL, SDL_MapRGB( screenSurface->format, 0xFF, 0xFF, 0xFF ) );
 
-    SDL_UpdateWindowSurface(window);
+    SDL_Surface* image = SDL_LoadBMP("assets/red.bmp");
+    if(image == NULL)
+        printf("IMAGE NOT FOUND\n");
 
-    SDL_Delay(2000);
+    bool quit = false;
+
+    while(!quit)
+    {
+        SDL_Event e;
+
+        while(SDL_PollEvent(&e) != 0)
+        {
+            if(e.type == SDL_QUIT)
+                quit = true;
+        }
+        SDL_BlitSurface(image, NULL, screenSurface, NULL);
+
+        SDL_UpdateWindowSurface(window);
+    }
+
+
 
     SDL_DestroyWindow(window);
     SDL_Quit();
