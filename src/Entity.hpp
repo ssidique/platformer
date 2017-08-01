@@ -1,7 +1,5 @@
 class Entity 
 {
     public:
-        void update();
-    private:
-        Sprite spr;
+        virtual void update()=0;
 };

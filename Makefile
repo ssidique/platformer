@@ -1,4 +1,4 @@
-OBJS = src/main.cpp
+OBJS = src/main.cpp src/InputHandler.cpp src/Graphics.cpp src/Game.cpp
 
 CC = g++
 
