@@ -8,10 +8,8 @@ Game::Game(Graphics* g)
 
 void Game::run()
 {
-
-
-    SDL_Surface* image = SDL_LoadBMP("assets/red.bmp");
-    if(image == NULL)
+    Sprite* image = new Sprite(graphics->renderer);
+    if(!image->loadFromFile("assets/red.bmp"))
         printf("IMAGE NOT FOUND\n");
 
 
@@ -24,12 +22,27 @@ void Game::run()
 
         // Update
 
+        std::vector<Entity*>::iterator entity;
+
+        /*
+        for(entity = objects.begin(); entity < objects.end(); entity++)
+        {
+            (*entity)->update(*this);
+        }
 
 
+        for(entity = objects.begin(); entity < objects.end(); entity++)
+        {
+            (*entity)->render(graphics);
+        }
+        */
         // Render
-        SDL_BlitSurface(image, NULL, graphics->screenSurface, NULL);
+        SDL_RenderClear(graphics->renderer);
 
-        SDL_UpdateWindowSurface(graphics->window);
+        SDL_RenderCopy(graphics->renderer, image->mTexture, NULL, NULL);
+        SDL_RenderPresent(graphics->renderer);
+
+        //SDL_UpdateWindowSurface(graphics->window);
     }
 
 

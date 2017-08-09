@@ -1,6 +1,11 @@
 #include "Graphics.hpp"
      
-Graphics::Graphics(SDL_Window* w, SDL_Surface* s) { 
+Graphics::Graphics(SDL_Window* w, SDL_Renderer* s) { 
     window = w; 
-    screenSurface = s;
+    renderer = s;
+}
+
+void Graphics::update(Entity& entity)
+{
+
 }

@@ -3,8 +3,11 @@
 
 
 #include <SDL2/SDL.h>
+#include <vector>
 #include "InputHandler.hpp"
 #include "Graphics.hpp"
+#include "Entity.hpp"
+#include "Sprite.hpp"
 
 class Game
 {
@@ -14,5 +17,6 @@ class Game
     private:
         InputHandler* inputHandler;
         Graphics* graphics;
+        std::vector<Entity*> objects;
 };
 #endif
