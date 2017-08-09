@@ -17,5 +17,18 @@ bool Sprite::loadFromFile(std::string path)
     SDL_FreeSurface(loadedSurface);
     if(mTexture == NULL)
         return false;
+    mWidth = loadedSurface->w;
+    mHeight = loadedSurface->h;
     return true;
+}
+
+void Sprite::render(int x, int y, SDL_Rect* clip)
+{
+    SDL_Rect renderQuad = { x, y, mWidth, mHeight};
+    if(clip != NULL)
+    {
+        renderQuad.w = clip->w;
+        renderQuad.h = clip->h;
+    }
+    SDL_RenderCopy( renderer, mTexture, clip, &renderQuad );
 }

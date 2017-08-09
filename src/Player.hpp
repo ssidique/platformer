@@ -1,6 +1,11 @@
 #ifndef __PLAYER_HPP__
 #define __PLAYER_HPP__
 
+#include "Entity.hpp"
+#include "Sprite.hpp"
+#include "InputHandler.hpp"
+#include "Graphics.hpp"
+
 enum PlayerState
 {
     STANDING,
@@ -8,17 +13,23 @@ enum PlayerState
     JUMPING,
     FALLING
 };
+
 class Player : public Entity
 {
     public:
-        Player(InputHandler* playerInputs);
+        Player(InputHandler* playerInputs, Graphics* g);
         void update();
         void render()
-        { sprite->render();}
+        { 
+            SDL_Rect rect = {0, 0, 30, 30};
+            sprite->render(x, y, &rect);
+        }
     private:
         PlayerState state; // initialize to STAND
         InputHandler* input;
         Sprite* sprite;
+        int x, y; //TODO turn into doubles
+        SDL_Rect* spriteClip;
 
 };
 

@@ -8,14 +8,15 @@ Game::Game(Graphics* g)
 
 void Game::run()
 {
-    Sprite* image = new Sprite(graphics->renderer);
-    if(!image->loadFromFile("assets/red.bmp"))
-        printf("IMAGE NOT FOUND\n");
 
+
+    Player* player = new Player(inputHandler, graphics);
 
     //Game Loop
     while(!inputHandler->isQuit())
     {
+
+        SDL_RenderClear(graphics->renderer);
 
         // Poll Inputs
         inputHandler->pollInput();
@@ -30,16 +31,20 @@ void Game::run()
             (*entity)->update(*this);
         }
 
+        // Render
 
         for(entity = objects.begin(); entity < objects.end(); entity++)
         {
             (*entity)->render(graphics);
         }
         */
-        // Render
-        SDL_RenderClear(graphics->renderer);
 
-        SDL_RenderCopy(graphics->renderer, image->mTexture, NULL, NULL);
+        player->update();
+        player->render();
+
+    
+    
+
         SDL_RenderPresent(graphics->renderer);
 
         //SDL_UpdateWindowSurface(graphics->window);

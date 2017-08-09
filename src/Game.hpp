@@ -8,6 +8,7 @@
 #include "Graphics.hpp"
 #include "Entity.hpp"
 #include "Sprite.hpp"
+#include "Player.hpp"
 
 class Game
 {
