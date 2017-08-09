@@ -28,7 +28,7 @@ class Player : public Entity
         PlayerState state; // initialize to STAND
         InputHandler* input;
         Sprite* sprite;
-        int x, y; //TODO turn into doubles
+        double x, y; //TODO turn into doubles
         SDL_Rect* spriteClip;
 
 };

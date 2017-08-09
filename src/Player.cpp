@@ -16,7 +16,7 @@ Player::Player(InputHandler* playerInputs, Graphics* g)
 //TODO make a better state machine
 void Player::update()
 {
-    x += 1;
+    x += 0.1;
 }
 
 

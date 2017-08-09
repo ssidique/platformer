@@ -22,7 +22,7 @@ bool Sprite::loadFromFile(std::string path)
     return true;
 }
 
-void Sprite::render(int x, int y, SDL_Rect* clip)
+void Sprite::render(double x, double y, SDL_Rect* clip)
 {
     SDL_Rect renderQuad = { x, y, mWidth, mHeight};
     if(clip != NULL)

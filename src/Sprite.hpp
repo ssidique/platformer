@@ -9,18 +9,18 @@ class Sprite {
         Sprite(SDL_Renderer* r);
         bool loadFromFile(std::string path);
         void free();
-        void render(int x, int y, SDL_Rect* clip);
+        void render(double x, double y, SDL_Rect* clip);
 
-        int getWidth()
+        double getWidth()
         { return mWidth; }
-        int getHeight()
+        double getHeight()
         { return mHeight; }
 
         SDL_Texture* mTexture;
     private:
         SDL_Renderer* renderer;
-        int mWidth;
-        int mHeight;
+        double mWidth;
+        double mHeight;
 };
 
 #endif
