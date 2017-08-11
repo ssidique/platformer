@@ -10,7 +10,8 @@ void Game::run()
 {
 
 
-    Player* player = new Player(inputHandler, graphics);
+    Player* player = new Player(graphics);
+    inputHandler->attachPlayer(player);
 
     //Game Loop
     while(!inputHandler->isQuit())

@@ -13,6 +13,24 @@ void InputHandler::pollInput()
     {
         if(e.type == SDL_QUIT)
             quit = true;
+        else if(e.type == SDL_KEYDOWN)
+        {
+            switch(e.key.keysym.sym)
+            {
+                case SDLK_UP:
+                    player->up();
+                    break;
+                case SDLK_DOWN:
+                    player->down();
+                    break;
+                case SDLK_LEFT:
+                    player->left();
+                    break;
+                case SDLK_RIGHT:
+                    player->right();
+                    break;
+            }
+        }
     }
 }
 
